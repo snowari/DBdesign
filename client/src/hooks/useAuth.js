@@ -6,11 +6,6 @@ const { localStorage } = window;
 const useAuth = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const wasAuthenticated = localStorage.getItem("isAuthenticated");
-
-  if (wasAuthenticated) {
-    setIsAuthenticated(true);
-  }
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -23,7 +18,16 @@ const useAuth = () => {
   };
 
   useEffect(() => {
-    isAuthenticated ? navigate("/") : navigate("/login");
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
+    setIsAuthenticated(true);
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/project");
   }, [isAuthenticated]);
 
   return { handleLogin, handleLogout };

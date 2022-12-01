@@ -14,16 +14,34 @@
   flex-direction: column;
 }
 
+.page2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 2000px;
+  padding: 0 20px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #f7f7f7;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 .titleWrap {
   margin-top: 87px;
   font-size: 26px;
   font-weight: bold;
   color: #262626;
+  margin-left: 10px;
 }
 
 .contentWrap {
   margin-top: 26px;
   flex: 1;
+  margin-left: 10px;
 }
 
 .inputTitle {

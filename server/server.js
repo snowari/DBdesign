@@ -53,7 +53,7 @@ app.get("/empinfo/:id", (req, res) => {
   //개인 조회
   const id = req.params.id;
   connection.query(
-    `SELECT * FROM employee WHERE employee.emp_ID='${id}'`,
+    `SELECT * FROM employee WHERE employee.emp_no='${id}'`,
     function (err, data, fields) {
       if (err) {
         console.log("fail to get data", err);
